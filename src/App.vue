@@ -4,7 +4,7 @@
     </div>
 
     <div class="main-section">
-            <filter-component></filter-component>
+            <filter-component class="filters"></filter-component>
         <div class="products">
             <router-view></router-view>
             <!-- <products-component></products-component> -->
@@ -17,17 +17,19 @@
 <style lang="scss" scoped>
 
 .main-section{
-    margin: 2rem auto;
+    margin: 0rem auto;
     width: 80%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
 }
 .products{
     width: 75%;
     margin: 1rem auto;
     padding: 10px;
+}
+.filters{
+    margin-top: 7rem;
 }
 
 </style>

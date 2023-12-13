@@ -1,112 +1,107 @@
 <template>
-    <h1>Cart Page loaded</h1>
 
-    <div class="electronics">
-    <h1 class="elec">Best Of Electronics</h1>
-    <button @click="deleteCart">Delete Cart</button>
-    <ul class="electronic">
-      <li v-for="(product, index) in cartlist" :key="index" class="eitem">
-        <img :src="product.images[0]" class="eimg" alt="" />
-        <p>{{ product.category }}</p>
-        <div class="add-to-cart">
-          <i
-            class="fa-solid fa-minus decrement"
-            @click="decrementCount(index)"
-          ></i>
-          <p class="quantity">{{ product.stock }}</p>
-          <i
-            class="fa-solid fa-plus increment"
-            @click="incrementCount(index)"
-          ></i>
+  <div class="box-container">
+    <h1>Cart List : </h1>
+    <div class="products" >
+      <div class="box" v-for="(product, index) in cartlist" :key="index">
+        <div class="image">
+          <img :src="product.images[0]" alt="" />
         </div>
-        <button @click="addToCart(product)">AddToCart</button>
-      </li>
-    </ul>
-    <div class="poster">
-      <div class="text">
-        <h2>Shop Your</h2>
-        <h2>fashion Needs</h2>
-        <p>lorem ipsum jsdjkn</p>
-        <p>jdjdsjdsjcjd</p>
-        <button class="btn">Click</button>
+        <div class="info">
+          <div class="price-container">
+            <p class="title">{{ product.category }}</p>
+            <p class="price">&#x20B9; <span>5000</span></p>
+          </div>
+          <div class="subInfo">
+            <div class="quantity-container">
+              <i
+                class="fa-solid fa-minus decrement"
+                @click="decrementCount(index, showAll)"
+              ></i>
+
+              <p class="quantity">{{ product.stock }}</p>
+              <i
+                class="fa-solid fa-plus increment"
+                @click="incrementCount(index, showAll)"
+              ></i>
+            </div>
+            <div class="addtocart">
+              <div @click="addToCart(product)" class="addBtn">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
-
-
-    
 </template>
-
 <script src="./js/cart"></script>
 
 <style scoped>
-
-.electronics {
-  margin-top: 25px;
-  background-color: white;
-  height: 300px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.products{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+
+.box {
+  background: white;
   position: relative;
+  overflow: hidden;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
 }
-.elec {
-  position: absolute;
-  left: 1rem;
-  top: 0.1rem;
+.box .image {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.electronic {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  height: 70%;
-  margin-top: 5rem;
+.box .image img {
+  height: 150px;
+  width: 200px;
+  object-fit: cover;
+
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.7));
 }
-.electronic .eitem {
+
+.price-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 20px;
-  margin-left: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+}
+
+.subInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80px;
+  font-size: 10px;
+  padding: 5px;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
 }
-.eimg {
-  height: 100px;
-  width: fit-content;
-  margin-bottom: 10px;
+.quantity {
+  margin: 0 5px;
+  border: 1px solid black;
+  padding: 0 20px;
+  border-radius: 10px;
 }
-.poster {
-  width: 20%;
-  margin-left: 10px;
-
-  height: 100%;
-  margin-left: 10px;
-  background: url("@/assets/images/poster.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.poster .text {
-  margin-top: 4rem;
-  margin-left: 1rem;
-  font-size: small;
-  color: whitesmoke;
-}
-.poster .btn {
-  border-radius: 5px;
-  margin-top: 10px;
-}
-.btn:hover {
-  background-color: chocolate;
-  cursor: pointer;
-}
-
-
 </style>

@@ -1,9 +1,12 @@
 <template>
   <Nav class="navbar">
     <search>
-      <i
+      <!-- <i
         class="fa-solid fa-magnifying-glass"
         @click="$emit('alert-text', text)"
+      ></i> -->
+      <i
+        class="fa-solid fa-magnifying-glass"
       ></i>
       <!-- <p>Message is: {{ message }}</p> -->
       <input v-model="userSearch" placeholder="Search for Products,Brands and More" class="search" />
@@ -13,24 +16,24 @@
         class="search"
       /> -->
     </search>
-    <h1>{{ text }}</h1>
+    <!-- <h1>{{ text }}</h1> -->
     <useroptions>
       <ul class="options">
-        <li>
+        <li class="option">
           <i class="fa-regular fa-user"></i>
           Login
         </li>
-        <li @click="navigateCart">
-          <i class="fa-solid fa-cart-shopping"></i>
-          Cart
-          <p>{{ cartCount }}</p>
-        </li>
-        <li>
+      
+        <li class="option">
           <i class="fa-solid fa-shop"></i>
-          Become a Seller
+          <p>Become a seller</p>
         </li>
         <li @click="navigateHome">
           Products
+        </li>
+        <li @click="navigateCart" >
+          <i class="fa-solid badge fa-cart-shopping" :value="cartCount"></i>
+    
         </li>
       </ul>
     </useroptions>
@@ -70,13 +73,36 @@
   list-style-type: none;
 }
 .options > * {
-  padding-left: 1rem;
+  margin-left:2rem ;
   cursor: pointer;
+}
+.option{
+  display: flex;
+  justify-content: center;
 }
 i {
   padding-right: 10px;
 }
-i:hover {
+li:hover {
   color: pink;
 }
+
+.cart-details{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.badge:after{
+        content:attr(value);
+        font-size:12px;
+        color: #fff;
+        background: grey;
+        border-radius:50%;
+        position:relative;
+        left:-8px;
+        top:-10px;
+        opacity:0.9;
+        padding: 2px 5px;
+        
+    }
 </style>

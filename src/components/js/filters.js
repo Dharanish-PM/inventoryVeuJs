@@ -21,11 +21,14 @@ export default{
     },
     methods:{
         ...mapActions(ProductStore,[
-            "filterProductStoreByCategory"
+            "filterProductStoreByCategory","setAll"
           ]),
         filterProducts(){
                this.filterProductStoreByCategory(this.selectedCategory);
         },
+        removeFilters(){
+            this.setAll();
+        }
        
 
     },

@@ -580,6 +580,10 @@ export const ProductStore = defineStore("productList",{
         copyState() {
           this.filteredProductsList = JSON.parse(JSON.stringify(this.products));
         },
+        setAll(){
+          this.showAll=true;
+       
+        }
        
 
     }

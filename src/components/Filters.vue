@@ -26,7 +26,7 @@
         <option>Nokia</option>
         <option>Samsung</option>
       </select>
-      <h1>{{ selectedCategory }}</h1>
+
     </div>
 
     <h4>Color</h4>
@@ -38,7 +38,7 @@
       <div class="blue color"></div>
     </div>
     <div class="clear-filters">
-      <button class="clear-btn">CLEAR FILTERS</button>
+      <button class="clear-btn" @click="removeFilters">CLEAR FILTERS</button>
     </div>
   </div>
 </template>
