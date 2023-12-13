@@ -14,7 +14,7 @@
     <h4>Company</h4>
     <div class="select-container">
       <select v-model="selected" class="select-box">
-        <option value="">Please select one</option>
+        <option value="getuserData">Please select one</option>
         <option>All</option>
         <option>Nokia</option>
         <option>Samsung</option>

@@ -20,13 +20,17 @@
           <i class="fa-regular fa-user"></i>
           Login
         </li>
-        <li>
+        <li @click="navigateCart">
           <i class="fa-solid fa-cart-shopping"></i>
           Cart
+          <p>{{ cartCount }}</p>
         </li>
         <li>
           <i class="fa-solid fa-shop"></i>
           Become a Seller
+        </li>
+        <li @click="navigateHome">
+          Products
         </li>
       </ul>
     </useroptions>

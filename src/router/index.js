@@ -1,22 +1,34 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { app, pages } from '@/config'
-// import HomePage from '@/pages/HomePage.vue'
-
-// const AboutPage = () => import(/* webpackChunkName: "p-about" */ '@/pages/AboutPage.vue')
-
+import ProductList from '@/components/ProductList.vue'
+import Filters from '@/components/Filters.vue'
+import Cart from '@/pages/Cart.vue'
+// import { app, pages } from '@/config'
+const beauty={
+  template: `<div>User</div>`,
+}
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    // {
-    //   path: pages.home,
-    //   name: app.home,
-    //   component: HomePage
-    // },
-    // {
-    //   path: pages.about,
-    //   name: app.about,
-    //   component: AboutPage
-    // }
+    {
+      path: "/",
+      name: "productList",
+      component: ProductList,
+
+    },
+    {
+      path: "/cart",
+      name:"cart",
+      component: Cart,
+      // children:
+      // [
+      //   {
+      //     path:"beauty",
+      //     component:beauty
+      //   }
+
+      // ]
+      
+    }
   ]
 })
 

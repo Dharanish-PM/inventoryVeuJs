@@ -1,16 +1,17 @@
 <template>
+
     <div class="navbar">
         <nav-component :text="'My Header'" @alert-text="alertMsg"></nav-component>
     </div>
 
     <div class="main-section">
-
             <filter-component></filter-component>
         <div class="products">
-
-            <products-component></products-component>
+            <router-view></router-view>
+            <!-- <products-component></products-component> -->
         </div>
     </div>
+
        
 </template>
  
