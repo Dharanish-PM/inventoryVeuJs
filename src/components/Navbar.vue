@@ -6,7 +6,7 @@
         @click="$emit('alert-text', text)"
       ></i>
       <!-- <p>Message is: {{ message }}</p> -->
-      <input v-model="message" placeholder="Search for Products,Brands and More" class="search" />
+      <input v-model="userSearch" placeholder="Search for Products,Brands and More" class="search" />
       <!-- <input
         type="text"
         placeholder="Search for Products,Brands and More"
