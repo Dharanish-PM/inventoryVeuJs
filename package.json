@@ -28,6 +28,7 @@
     "@blibli/blue-dls-utils": "^3.0.0",
     "@blibli/blue-font": "^3.0.1",
     "@blibli/blue.button": "^3.0.0",
+    "nodemon": "^3.0.2",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2",
