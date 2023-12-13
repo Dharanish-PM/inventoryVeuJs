@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import testAPI from '@/api/test-api'
 
 
+
 export const ProductStore = defineStore("productList",{
     state: () => ({
       products:[
@@ -573,10 +574,13 @@ export const ProductStore = defineStore("productList",{
         },
         filterProductStoreByCategory(category){
           this.filteredProductsList=this.products.filter((product)=>product.category===category);
-            this.showAll=!this.showAll
+          this.showAll=false;
+
+        },
+        copyState() {
+          this.filteredProductsList = JSON.parse(JSON.stringify(this.products));
         },
        
 
-    
     }
   })

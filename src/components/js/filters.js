@@ -13,8 +13,6 @@ export default{
                 'home-decoration',
               ],
               selectedCategory:"",
-
-
         }
     },
     computed:{
@@ -27,7 +25,8 @@ export default{
           ]),
         filterProducts(){
                this.filterProductStoreByCategory(this.selectedCategory);
-        }
+        },
+       
 
-    }
+    },
 }

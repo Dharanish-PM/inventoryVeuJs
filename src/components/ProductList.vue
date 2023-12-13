@@ -20,15 +20,19 @@
         <img :src="product.images[0]" class="eimg" alt="" />
         <p>{{ product.category }}</p>
         <div class="add-to-cart">
-          <i
+
+          <i 
             class="fa-solid fa-minus decrement"
-            @click="decrementCount(index)"
+            @click="decrementCount(index,showAll)"
           ></i>
+        
           <p class="quantity">{{ product.stock }}</p>
-          <i
+          <i 
             class="fa-solid fa-plus increment"
-            @click="incrementCount(index)"
+            @click="incrementCount(index,showAll)"
           ></i>
+     
+
         </div>
         <button @click="addToCart(product)">AddToCart</button>
       </li>
@@ -41,12 +45,12 @@
         <div class="add-to-cart">
           <i
             class="fa-solid fa-minus decrement"
-            @click="decrementCount(index)"
+            @click="decrementCount(index,showAll)"
           ></i>
           <p class="quantity">{{ product.stock }}</p>
           <i
             class="fa-solid fa-plus increment"
-            @click="incrementCount(index)"
+            @click="incrementCount(index,showAll)"
           ></i>
         </div>
         <button @click="addToCart(product)">AddToCart</button>

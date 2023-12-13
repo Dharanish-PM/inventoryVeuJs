@@ -10,6 +10,7 @@
           v-model="selectedCategory"
           name="category"
           @click="filterProducts"
+
         />
         {{ category }}
       </div>
