@@ -1,32 +1,17 @@
-import { mapActions,mapState,mapWritableState } from 'pinia'
-import {ProductStore } from '@/stores/ProductStore.js'
+import { mapActions, mapState, mapWritableState } from "pinia";
+import { ProductStore } from "@/stores/ProductStore.js";
 export default {
-    data(){
-        return {
-
-       
-
-        }
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapWritableState(ProductStore, ["cartlist", "cartCount"]),
+    deleteCart() {
+      console.log("wjjsdb");
+      this.cartlist = [];
+      this.cartCount = 0;
     },
-    computed:{
-        ...mapWritableState(ProductStore,['cartlist','cartCount']),
-      deleteCart(){
-        console.log("wjjsdb");
-        this.cartlist=[];
-        this.cartCount=0;
-
-      }
-    },
-    methods:{
-
-    },
-    created(){
-
-  
-    }
-   
-}
-
-
-
-
+  },
+  methods: {},
+  created() {},
+};

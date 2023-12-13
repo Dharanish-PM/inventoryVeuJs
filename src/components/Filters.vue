@@ -2,14 +2,20 @@
   <div class="product-filter">
     <h4>Category</h4>
 
-    <ul class="category">
-      <li class="visited">All</li>
-      <li>Mobile</li>
-      <li>Laptop</li>
-      <li>Computer</li>
-      <li>Accessories</li>
-      <li>Watch</li>
-    </ul>
+    <div>
+      <div v-for="category in categories" :key="category" class="category">
+        <input
+          type="radio"
+          :value="category"
+          v-model="selectedCategory"
+          name="category"
+          @click="filterProducts"
+        />
+        {{ category }}
+      </div>
+  
+
+    </div>
 
     <h4>Company</h4>
     <div class="select-container">
@@ -19,7 +25,7 @@
         <option>Nokia</option>
         <option>Samsung</option>
       </select>
-
+      <h1>{{ selectedCategory }}</h1>
     </div>
 
     <h4>Color</h4>
@@ -36,7 +42,7 @@
   </div>
 </template>
 
-<script src=""></script>
+<script src="./js/filters"></script>
 
 <style scoped>
 .product-filter {

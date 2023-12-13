@@ -560,7 +560,9 @@ export const ProductStore = defineStore("productList",{
         }
       ],
       cartlist:[],
-      cartCount:0
+      cartCount:0,
+      filteredProductsList:[],
+      showAll:true,
 
     }),
     actions: {
@@ -568,7 +570,13 @@ export const ProductStore = defineStore("productList",{
           this.cartlist.push(product);
           this.cartCount=this.cartlist.length;
           console.log(this.cartlist);
-        }
+        },
+        filterProductStoreByCategory(category){
+          this.filteredProductsList=this.products.filter((product)=>product.category===category);
+            this.showAll=!this.showAll
+        },
+       
+
     
     }
   })

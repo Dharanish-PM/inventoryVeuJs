@@ -6,13 +6,11 @@ import {ProductStore } from '@/stores/ProductStore.js'
 export default {
     data(){
         return {
-
-       
-
+            
         }
     },
     computed:{
-      ...mapState(ProductStore,['products'])
+      ...mapState(ProductStore,['products','filteredProductsList','showAll']),
     },
     methods:{
       ...mapActions(ProductStore,[

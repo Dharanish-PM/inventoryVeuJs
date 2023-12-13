@@ -1,5 +1,4 @@
 <template>
-
     <div class="navbar">
         <nav-component :text="'My Header'" @alert-text="alertMsg"></nav-component>
     </div>
@@ -11,8 +10,6 @@
             <!-- <products-component></products-component> -->
         </div>
     </div>
-
-       
 </template>
  
 <script src="./js/app"></script>

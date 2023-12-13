@@ -12,7 +12,10 @@
 
   <div class="electronics">
     <h1 class="elec">Best Of Electronics</h1>
-    <ul class="electronic">
+
+
+
+    <ul v-if="showAll" class="electronic">
       <li v-for="(product, index) in products" :key="index" class="eitem">
         <img :src="product.images[0]" class="eimg" alt="" />
         <p>{{ product.category }}</p>
@@ -30,6 +33,29 @@
         <button @click="addToCart(product)">AddToCart</button>
       </li>
     </ul>
+
+    <ul v-else class="electronic">
+      <li v-for="(product, index) in filteredProductsList" :key="index" class="eitem">
+        <img :src="product.images[0]" class="eimg" alt="" />
+        <p>{{ product.category }}</p>
+        <div class="add-to-cart">
+          <i
+            class="fa-solid fa-minus decrement"
+            @click="decrementCount(index)"
+          ></i>
+          <p class="quantity">{{ product.stock }}</p>
+          <i
+            class="fa-solid fa-plus increment"
+            @click="incrementCount(index)"
+          ></i>
+        </div>
+        <button @click="addToCart(product)">AddToCart</button>
+      </li>
+    </ul>
+
+
+
+
     <div class="poster">
       <div class="text">
         <h2>Shop Your</h2>
