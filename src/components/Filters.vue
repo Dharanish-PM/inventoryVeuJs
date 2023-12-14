@@ -10,13 +10,12 @@
           v-model="selectedCategory"
           name="category"
           @click="filterProducts"
-
         />
-        {{ category }}
+        <p class="cat">{{ category }}</p>
       </div>
-  
-
     </div>
+
+    <p>{{selectedCategory}}</p>
 
     <h4>Company</h4>
     <div class="select-container">
@@ -26,7 +25,6 @@
         <option>Nokia</option>
         <option>Samsung</option>
       </select>
-
     </div>
 
     <h4>Color</h4>
@@ -59,14 +57,16 @@
 
 .category {
   list-style-type: none;
-  margin-top: 20px;
   padding: 0;
+  display: flex;
+  align-items: center;
 }
-.category li {
-  margin-bottom: 10px;
-  width: 20px;
+
+.cat {
+  width: 65%;
+  cursor: pointer;
 }
-.category li:hover {
+.category .cat:hover {
   cursor: pointer;
   transform: scaleY(1.1);
   color: #750e21;

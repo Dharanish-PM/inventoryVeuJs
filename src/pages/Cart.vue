@@ -2,6 +2,7 @@
 
   <div class="box-container">
     <h1>Cart List : </h1>
+    <div class="clear clearBtn" @click="deleteCart">Clear</div>
     <div class="products" >
       <div class="box" v-for="(product, index) in cartlist" :key="index">
         <div class="image">
@@ -25,11 +26,7 @@
                 @click="incrementCount(index, showAll)"
               ></i>
             </div>
-            <div class="addtocart">
-              <div @click="addToCart(product)" class="addBtn">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -103,5 +100,33 @@
   border: 1px solid black;
   padding: 0 20px;
   border-radius: 10px;
+}
+
+.box-container{
+  position: relative;
+}
+.clearBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80px;
+  font-size: large;
+  padding: 5px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  position: absolute;
+  right: 0;
+  top:10px;
+}
+.increment:hover,.decrement:hover{
+  transform: scale(0.95);
+  cursor: pointer;
+
+}
+
+.clearBtn:hover{
+  transform: scale(0.95);
+  cursor: pointer;
 }
 </style>

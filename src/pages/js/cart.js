@@ -12,6 +12,18 @@ export default {
       this.cartCount = 0;
     },
   },
-  methods: {},
+  methods: {
+    incrementCount(ind) {
+   
+        this.cartlist[ind].stock++;
+      
+    },
+    decrementCount(index) {
+    
+        this.cartlist[index].stock--;
+      
+    },
+
+  },
   created() {},
 };

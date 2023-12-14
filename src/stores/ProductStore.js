@@ -568,9 +568,16 @@ export const ProductStore = defineStore("productList",{
     }),
     actions: {
        addToCartStore(product){
+        if(!this.cartlist.includes(product)){
+          // const found = this.cartlist.find((element) => element === product);
           this.cartlist.push(product);
           this.cartCount=this.cartlist.length;
-          console.log(this.cartlist);
+
+        }
+        else{
+          alert("Already in cart");
+        }
+       
         },
         filterProductStoreByCategory(category){
           this.filteredProductsList=this.products.filter((product)=>product.category===category);
@@ -582,7 +589,6 @@ export const ProductStore = defineStore("productList",{
         },
         setAll(){
           this.showAll=true;
-       
         }
        
 

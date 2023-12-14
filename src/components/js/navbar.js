@@ -26,6 +26,10 @@ export default {
 
 
     },
+    mounted(){
+        console.log(this.$refs.input);
+
+    },
     props:['text'],
     emits:['alert-text']
 }
