@@ -2,31 +2,12 @@
   <div class="product-filter">
     <h4>Category</h4>
 
-    <!-- <div>
-      <div v-for="category in categories" :key="category" class="category">
-        <input
-          type="radio"
-          :value="category"
-          v-model="selectedCategory"
-          name="category"
-          @click="filterProducts"
-        />
-        <p class="cat">{{ category }}</p>
-      </div>
-    </div> -->
-
     <div>
       <div v-for="category in categories" :key="category" class="category">
-        <input
-          type="checkbox"
-          :value="category"
-          v-model="selectedCategory"
-        />
+        <input type="checkbox" :value="category" v-model="selectedCategory" />
         <p class="cat">{{ category }}</p>
       </div>
     </div>
-
-
 
     <h4>Company</h4>
     <div class="select-container">

@@ -4,10 +4,11 @@
   </div>
 
   <div class="main-section">
-    <filter-component class="filters"></filter-component>
+    <filter-component  class="filters"></filter-component>
     <div class="products">
       <router-view></router-view>
       <!-- <products-component></products-component> -->
+  
     </div>
   </div>
 </template>

@@ -32,6 +32,7 @@
           <p>Become a seller</p>
         </li>
         <li @click="navigateHome">Products</li>
+        <li @click="navigateAddProduct">AddProduct</li>
         <li @click="navigateCart">
           <i class="fa-solid badge fa-cart-shopping" :value="cartCount"></i>
         </li>

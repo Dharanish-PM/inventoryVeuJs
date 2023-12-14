@@ -1,36 +1,63 @@
-// 20231213111633
-// https://dummyjson.com/products
-
 import { mapActions, mapState, mapWritableState } from "pinia";
 import { ProductStore } from "@/stores/ProductStore.js";
+import img from "@/assets/images/poster.jpeg"
 export default {
   data() {
-    return {};
+    return {
+      loading:false,
+      img,
+      isHovered: false
+    };
   },
   computed: {
-    ...mapState(ProductStore, ["products", "filteredProductsList", "showAll"]),
+    ...mapState(ProductStore, ["productsList", "filteredProductsList", "showAll"]),
   },
   methods: {
-    ...mapActions(ProductStore, ["addToCartStore"]),
+    ...mapActions(ProductStore, ["addToCartStore",'getAllProducts']),
     incrementCount(ind, visibleAll) {
       if (visibleAll === true) {
-        this.products[ind].stock++;
+        this.productsList[ind].quantity++;
       } else {
-        this.filteredProductsList[ind].stock++;
+        this.filteredProductsList[ind].quantity++;
       }
     },
     decrementCount(index, visibleAll) {
       if (visibleAll === true) {
-        this.products[index].stock--;
+        this.productsList[index].quantity--;
       } else {
-        this.filteredProductsList[index].stock--;
+        this.filteredProductsList[index].quantity--;
       }
     },
     addToCart(product) {
       this.addToCartStore(product);
     },
+    handleMouseOver(item) {
+      item.isHovered = true;
+    },
+    handleMouseOut(item) {
+      item.isHovered = false;
+    },
+
+    navigatePurchase(id){
+      this.$router.push({name:'purchase',params: { id }});
+    },
+    navigateUpdateProduct(id){
+      console.log(id);
+     this.$router.push({name:'updateProduct',params: { id }});
+
+    },
+
   },
   created() {
-    ProductStore().copyState();
+    // ProductStore().copyState();
+    // this.loading=true;
+      // setTimeout(()=>{
+      //   this.getAllProducts(
+      //     {success:this.onSucces,failure:this.onFailure}
+      //   );
+      // },2000);
+
+      this.getAllProducts();
+    
   },
 };

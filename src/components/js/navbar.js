@@ -24,6 +24,10 @@ export default {
     navigateHome() {
       this.$router.push("/");
     },
+    navigateAddProduct(){
+      this.$router.push("/addProduct");
+
+    },
     printHello() {
       console.log("Helooo People!!");
     },

@@ -13,10 +13,10 @@ export default {
   },
   methods: {
     incrementCount(ind) {
-      this.cartlist[ind].stock++;
+      this.cartlist[ind].quantity++;
     },
     decrementCount(index) {
-      this.cartlist[index].stock--;
+      this.cartlist[index].quantity--;
     },
   },
   created() {},

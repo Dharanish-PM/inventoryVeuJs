@@ -1,64 +1,27 @@
 <template>
-  <!-- <div class="electronics container">
-    <h1 class="elec">Best Of Electronics</h1>
-    <div class="products">
-      <ul v-if="showAll" class="electronic products">
-        <li v-for="(product, index) in products" :key="index" class="eitem">
-          <img :src="product.images[0]" class="eimg" alt="" />
-          <p>{{ product.category }}</p>
-          <div class="add-to-cart">
-            <i
-              class="fa-solid fa-minus decrement"
-              @click="decrementCount(index, showAll)"
-            ></i>
-
-            <p class="quantity">{{ product.stock }}</p>
-            <i
-              class="fa-solid fa-plus increment"
-              @click="incrementCount(index, showAll)"
-            ></i>
-          </div>
-          <button @click="addToCart(product)">AddToCart</button>
-        </li>
-      </ul>
-
-      <ul v-else class="electronic products">
-        <li
-          v-for="(product, index) in filteredProductsList"
-          :key="index"
-          class="eitem"
-        >
-          <img :src="product.images[0]" class="eimg" alt="" />
-          <p>{{ product.category }}</p>
-          <div class="add-to-cart">
-            <i
-              class="fa-solid fa-minus decrement"
-              @click="decrementCount(index, showAll)"
-            ></i>
-            <p class="quantity">{{ product.stock }}</p>
-            <i
-              class="fa-solid fa-plus increment"
-              @click="incrementCount(index, showAll)"
-            ></i>
-          </div>
-          <button @click="addToCart(product)">AddToCart</button>
-        </li>
-      </ul>
-    </div>
-  </div> -->
-
   <div class="box-container">
-    <h1>Product List :</h1>
+    <p v-if="loading">Loading....</p>
+    <p v-else>Data is reached</p>
 
+    <h1>Product List :</h1>
     <div class="products" v-if="showAll">
-      <div class="box" v-for="(product, index) in products" :key="index">
-        <div class="image">
-          <img :src="product.images[0]" alt="" />
+      <div
+        class="box"
+        v-for="(product, index) in productsList"
+        :key="index"
+        
+      >
+        <div class="image" :class="{ hovered: product.isHovered }"
+        @mouseover="handleMouseOver(product)"
+        @mouseout="handleMouseOut(product)" @click="navigatePurchase(product.id)">
+          <img :src="img" alt="" />
         </div>
         <div class="info">
           <div class="price-container">
-            <p class="title">{{ product.category }}</p>
-            <p class="price">&#x20B9; <span>5000</span></p>
+            <p class="title">{{ product.name }}</p>
+            <p class="price">
+              &#x20B9; <span>{{ product.price }}</span>
+            </p>
           </div>
 
           <div class="subInfo">
@@ -68,7 +31,7 @@
                 @click="decrementCount(index, showAll)"
               ></i>
 
-              <p class="quantity">{{ product.stock }}</p>
+              <p class="quantity">{{ product.quantity }}</p>
               <i
                 class="fa-solid fa-plus increment"
                 @click="incrementCount(index, showAll)"
@@ -76,6 +39,11 @@
             </div>
             <div class="addtocart">
               <div @click="addToCart(product)" class="addBtn">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </div>
+            <div class="update">
+              <div @click="navigateUpdateProduct(product.id)" class="addBtn">
                 <i class="fa-solid fa-cart-shopping"></i>
               </div>
             </div>
@@ -89,14 +57,20 @@
         class="box"
         v-for="(product, index) in filteredProductsList"
         :key="index"
+        
       >
-        <div class="image">
-          <img :src="product.images[0]" alt="" />
+        <div class="image" :class="{ hovered: product.isHovered }"
+        @mouseover="handleMouseOver(product)"
+        @mouseout="handleMouseOut(product)"
+        @click="navigatePurchase(product.id)">
+          <img :src="img" alt="" />
         </div>
         <div class="info">
           <div class="price-container">
-            <p class="title">{{ product.category }}</p>
-            <p class="price">&#x20B9; <span>5000</span></p>
+            <p class="title">{{ product.name }}</p>
+            <p class="price">
+              &#x20B9; <span>{{ product.price }}</span>
+            </p>
           </div>
 
           <div class="subInfo">
@@ -106,7 +80,7 @@
                 @click="decrementCount(index, showAll)"
               ></i>
 
-              <p class="quantity">{{ product.stock }}</p>
+              <p class="quantity">{{ product.quantity }}</p>
               <i
                 class="fa-solid fa-plus increment"
                 @click="incrementCount(index, showAll)"
@@ -114,6 +88,11 @@
             </div>
             <div class="addtocart">
               <div @click="addToCart(product)" class="addBtn">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </div>
+            <div class="update">
+              <div @click="navigateUpdateProduct(product.id)" class="addBtn">
                 <i class="fa-solid fa-cart-shopping"></i>
               </div>
             </div>
@@ -197,5 +176,12 @@
   border: 1px solid black;
   padding: 0 20px;
   border-radius: 10px;
+}
+.hovered {
+  cursor: pointer;
+  transform: scale(0.98);
+}
+.update{
+  border: 2px solid black;
 }
 </style>

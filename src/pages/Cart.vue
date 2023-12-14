@@ -5,12 +5,12 @@
     <div class="products">
       <div class="box" v-for="(product, index) in cartlist" :key="index">
         <div class="image">
-          <img :src="product.images[0]" alt="" />
+          <!-- <img :src="product.images[0]" alt="" /> -->
         </div>
         <div class="info">
           <div class="price-container">
-            <p class="title">{{ product.category }}</p>
-            <p class="price">&#x20B9; <span>5000</span></p>
+            <p class="title">{{ product.name }}</p>
+            <p class="price">&#x20B9; <span>{{ product.price }}</span></p>
           </div>
           <div class="subInfo">
             <div class="quantity-container">
@@ -19,7 +19,7 @@
                 @click="decrementCount(index, showAll)"
               ></i>
 
-              <p class="quantity">{{ product.stock }}</p>
+              <p class="quantity">{{ product.quantity }}</p>
               <i
                 class="fa-solid fa-plus increment"
                 @click="incrementCount(index, showAll)"

@@ -4,8 +4,8 @@ export default {
   data() {
     return {
       categories: [
-        "smartphones",
-        "laptops",
+        "electronics",
+        "fruits",
         "fragrances",
         "skincare",
         "groceries",
