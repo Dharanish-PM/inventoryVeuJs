@@ -601,16 +601,15 @@ export const ProductStore = defineStore("productList", {
       // this.filteredProductsList = this.products.filter(
       //   (product) => product.category === category
       // );
-      this.filteredProductsList=[]
-      for(var cat of category){
-        for(var prod of this.products){
-          if(prod.category===cat){
+      this.filteredProductsList = [];
+      for (var cat of category) {
+        for (var prod of this.products) {
+          if (prod.category === cat) {
             this.filteredProductsList.push(prod);
           }
         }
         console.log(this.filteredProductsList);
       }
-
       this.showAll = false;
     },
     copyState() {
@@ -621,4 +620,3 @@ export const ProductStore = defineStore("productList", {
     },
   },
 });
-

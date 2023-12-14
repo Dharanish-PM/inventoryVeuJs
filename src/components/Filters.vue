@@ -21,7 +21,6 @@
           type="checkbox"
           :value="category"
           v-model="selectedCategory"
-          name="category"
         />
         <p class="cat">{{ category }}</p>
       </div>
