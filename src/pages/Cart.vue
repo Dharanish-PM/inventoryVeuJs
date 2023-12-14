@@ -1,9 +1,8 @@
 <template>
-
   <div class="box-container">
-    <h1>Cart List : </h1>
+    <h1>Cart List :</h1>
     <div class="clear clearBtn" @click="deleteCart">Clear</div>
-    <div class="products" >
+    <div class="products">
       <div class="box" v-for="(product, index) in cartlist" :key="index">
         <div class="image">
           <img :src="product.images[0]" alt="" />
@@ -26,24 +25,21 @@
                 @click="incrementCount(index, showAll)"
               ></i>
             </div>
-           
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 <script src="./js/cart"></script>
 
 <style scoped>
-.products{
+.products {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-
 }
 
 .box {
@@ -102,7 +98,7 @@
   border-radius: 10px;
 }
 
-.box-container{
+.box-container {
   position: relative;
 }
 .clearBtn {
@@ -117,15 +113,15 @@
   color: white;
   position: absolute;
   right: 0;
-  top:10px;
+  top: 10px;
 }
-.increment:hover,.decrement:hover{
+.increment:hover,
+.decrement:hover {
   transform: scale(0.95);
   cursor: pointer;
-
 }
 
-.clearBtn:hover{
+.clearBtn:hover {
   transform: scale(0.95);
   cursor: pointer;
 }

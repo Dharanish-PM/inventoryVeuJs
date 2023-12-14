@@ -2,7 +2,7 @@
   <div class="product-filter">
     <h4>Category</h4>
 
-    <div>
+    <!-- <div>
       <div v-for="category in categories" :key="category" class="category">
         <input
           type="radio"
@@ -13,9 +13,21 @@
         />
         <p class="cat">{{ category }}</p>
       </div>
+    </div> -->
+
+    <div>
+      <div v-for="category in categories" :key="category" class="category">
+        <input
+          type="checkbox"
+          :value="category"
+          v-model="selectedCategory"
+          name="category"
+        />
+        <p class="cat">{{ category }}</p>
+      </div>
     </div>
 
-    <p>{{selectedCategory}}</p>
+
 
     <h4>Company</h4>
     <div class="select-container">

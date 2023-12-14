@@ -84,9 +84,12 @@
       </div>
     </div>
 
-
     <div class="products" v-else>
-      <div class="box" v-for="(product, index) in filteredProductsList" :key="index">
+      <div
+        class="box"
+        v-for="(product, index) in filteredProductsList"
+        :key="index"
+      >
         <div class="image">
           <img :src="product.images[0]" alt="" />
         </div>
@@ -118,20 +121,17 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 <script src="./js/productList"></script>
 
 <style scoped>
-.products{
+.products {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-
 }
 
 .box {
@@ -183,13 +183,12 @@
   background: rgba(0, 0, 0, 0.5);
   color: white;
 }
-.increment:hover,.decrement:hover{
+.increment:hover,
+.decrement:hover {
   transform: scale(0.95);
   cursor: pointer;
-  
-
 }
-.addBtn:hover{
+.addBtn:hover {
   transform: scale(0.95);
   cursor: pointer;
 }

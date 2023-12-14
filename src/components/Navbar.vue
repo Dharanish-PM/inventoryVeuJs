@@ -5,11 +5,14 @@
         class="fa-solid fa-magnifying-glass"
         @click="$emit('alert-text', text)"
       ></i> -->
-      <i
-        class="fa-solid fa-magnifying-glass"
-      ></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
       <!-- <p>Message is: {{ message }}</p> -->
-      <input ref="input" v-model="userSearch" placeholder="Search for Products,Brands and More" class="search" />
+      <input
+        ref="input"
+        v-model="userSearch"
+        placeholder="Search for Products,Brands and More"
+        class="search"
+      />
       <!-- <input
         type="text"
         placeholder="Search for Products,Brands and More"
@@ -23,17 +26,14 @@
           <i class="fa-regular fa-user"></i>
           Login
         </li>
-      
+
         <li class="option">
           <i class="fa-solid fa-shop"></i>
           <p>Become a seller</p>
         </li>
-        <li @click="navigateHome">
-          Products
-        </li>
-        <li @click="navigateCart" >
+        <li @click="navigateHome">Products</li>
+        <li @click="navigateCart">
           <i class="fa-solid badge fa-cart-shopping" :value="cartCount"></i>
-    
         </li>
       </ul>
     </useroptions>
@@ -73,10 +73,10 @@
   list-style-type: none;
 }
 .options > * {
-  margin-left:2rem ;
+  margin-left: 2rem;
   cursor: pointer;
 }
-.option{
+.option {
   display: flex;
   justify-content: center;
 }
@@ -87,22 +87,24 @@ li:hover {
   color: pink;
 }
 
-.cart-details{
+.cart-details {
   position: relative;
   display: flex;
   align-items: center;
 }
-.badge:after{
-        content:attr(value);
-        font-size:12px;
-        color: #fff;
-        background: grey;
-        border-radius:50%;
-        position:relative;
-        left:-8px;
-        top:-10px;
-        opacity:0.9;
-        padding: 2px 5px;
-        
-    }
+.badge:after {
+  content: attr(value);
+  font-size: 12px;
+  color: #fff;
+  background: grey;
+  border-radius: 50%;
+  position: relative;
+  left: -8px;
+  top: -10px;
+  opacity: 0.9;
+  padding: 2px 5px;
+}
+input:focus {
+  box-shadow: 2px 2px 5px black;
+}
 </style>

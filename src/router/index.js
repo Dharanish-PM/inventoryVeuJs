@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import ProductList from '@/components/ProductList.vue'
-import Filters from '@/components/Filters.vue'
-import Cart from '@/pages/Cart.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import ProductList from "@/components/ProductList.vue";
+import Filters from "@/components/Filters.vue";
+import Cart from "@/pages/Cart.vue";
 // import { app, pages } from '@/config'
-const beauty={
+const beauty = {
   template: `<div>User</div>`,
-}
+};
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -13,11 +13,10 @@ const router = createRouter({
       path: "/",
       name: "productList",
       component: ProductList,
-
     },
     {
       path: "/cart",
-      name:"cart",
+      name: "cart",
       component: Cart,
       // children:
       // [
@@ -27,9 +26,8 @@ const router = createRouter({
       //   }
 
       // ]
-      
-    }
-  ]
-})
+    },
+  ],
+});
 
-export default router
+export default router;

@@ -1,35 +1,38 @@
-import { mapActions,mapState,mapWritableState } from 'pinia'
-import {ProductStore } from '@/stores/ProductStore.js'
+import { mapActions, mapState, mapWritableState } from "pinia";
+import { ProductStore } from "@/stores/ProductStore.js";
 export default {
-    data(){
-        return {
-            userSearch:""
-
-        }
-
-        
+  data() {
+    return {
+      userSearch: "",
+    };
+  },
+  watch: {
+    userSearch(newSearch, old) {
+      this.printHello();
     },
-    computed:{
-        ...mapState(ProductStore,['cartCount']),
+  },
+  computed: {
+    ...mapState(ProductStore, ["cartCount"]),
+  },
+  methods: {
+    getuserData() {
+      alert("hy");
     },
-    methods:{
-    
-        getuserData(){
-            alert("hy")
-        },
-        navigateCart(){
-            this.$router.push("/cart")
-        },
-        navigateHome(){
-            this.$router.push("/")
-        }
-
-
+    navigateCart() {
+      this.$router.push("/cart");
     },
-    mounted(){
-        console.log(this.$refs.input);
-
+    navigateHome() {
+      this.$router.push("/");
     },
-    props:['text'],
-    emits:['alert-text']
-}
+    printHello() {
+      console.log("Helooo People!!");
+    },
+  },
+
+  mounted() {
+    this.$refs.input.focus();
+    console.log(this.$refs.input);
+  },
+  props: ["text"],
+  emits: ["alert-text"],
+};

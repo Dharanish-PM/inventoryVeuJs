@@ -19,7 +19,7 @@ export default {
         this.filteredProductsList[ind].stock++;
       }
     },
-    decrementCount(index,visibleAll) {
+    decrementCount(index, visibleAll) {
       if (visibleAll === true) {
         this.products[index].stock--;
       } else {
