@@ -85,15 +85,7 @@
   background: rgba(0, 0, 0, 0.5);
   color: white;
 }
-.increment:hover,
-.decrement:hover {
-  transform: scale(0.95);
-  cursor: pointer;
-}
-.addBtn:hover {
-  transform: scale(0.95);
-  cursor: pointer;
-}
+
 .quantity {
   margin: 0 5px;
   border: 1px solid black;

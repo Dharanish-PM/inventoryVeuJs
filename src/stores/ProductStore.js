@@ -103,41 +103,55 @@ export const ProductStore = defineStore("productList", {
         }
         const data = await response.json();
         this.updateInitiatedProduct = data;
-        console.log(data);
+        console.log(this.updateInitiatedProduct);
+        // console.log(data);
       } catch (eror) {
         console.log(eror);
       }
     },
 
-    async purchaseProduct(payload) {
+    async purchaseProduct(payload,{success,failure}) {
       try {
         const response = await TodoService.purchaseProduct(payload);
+    
         if (response.status === 404) {
+          failure && failure()
           throw new Error("Page not found");
+
         } else if (response.status === 500) {
+          failure && failure()
           throw new Error("Server error");
+
         } else if (!response.ok) {
+          failure && failure()
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        alert("Product Purchased");
+        alert("Your Order is been taken....Wait until processing");
+        success && success()
         console.log(data);
       } catch (error) {
         console.error(error);
       }
     },
 
-    async updateProductDetails(payload){
+    async updateProductDetails(payload,{success,failure}){
       try {
         const response = await TodoService.updateProductDetails(payload);
         if (response.status === 404) {
+          failure && failure()
           throw new Error("Page not found");
+
         } else if (response.status === 500) {
+          failure && failure()
           throw new Error("Server error");
+
         } else if (!response.ok) {
+          failure && failure()
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        success && success()
         console.log(data);
       } catch (error) {
         console.error(error);
@@ -145,18 +159,22 @@ export const ProductStore = defineStore("productList", {
 
     },
 
-    async addProductStore(payload){
+    async addProductStore(payload,{success,failure}){
       try {
         console.log(payload);
         const response = await TodoService.addProduct(payload);
         if (response.status === 404) {
+          failure && failure()
           throw new Error("Page not found");
         } else if (response.status === 500) {
+          failure && failure()
           throw new Error("Server error");
         } else if (!response.ok) {
+          failure && failure()
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        success && success()
         console.log(data);
       } catch (error) {
         console.error(error);

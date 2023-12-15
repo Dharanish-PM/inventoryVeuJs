@@ -42,12 +42,13 @@
                 <i class="fa-solid fa-cart-shopping"></i>
               </div>
             </div>
-            <div class="update">
+            
+          </div>
+          <div class="update">
               <div @click="navigateUpdateProduct(product.id)" class="addBtn">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <p>Update</p>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -91,12 +92,13 @@
                 <i class="fa-solid fa-cart-shopping"></i>
               </div>
             </div>
-            <div class="update">
+            
+          </div>
+          <div class="update">
               <div @click="navigateUpdateProduct(product.id)" class="addBtn">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <p>update</p>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -182,6 +184,13 @@
   transform: scale(0.98);
 }
 .update{
-  border: 2px solid black;
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+}
+.update .addBtn{
+  width: 100%;
+  padding: 1px;
+
 }
 </style>

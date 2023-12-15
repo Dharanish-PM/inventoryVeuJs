@@ -5,7 +5,7 @@ export default{
         return{
             productId:null,
             name:null,
-            price:0,
+            price:null,
             quantity:null, 
         }
 
@@ -13,10 +13,23 @@ export default{
     computed:{
         ...mapState(ProductStore,['updateInitiatedProduct'])
 
-
     },
     methods:{
         ...mapActions(ProductStore,['updateProductDetails','getProductByIdUpdate']),
+        
+        onSuccess(){
+            alert("Product is updated!!")
+            this.$router.push("/");
+
+        },
+
+        onFailure(){
+            alert("server error")
+            this.$router.push("/");
+        
+        },
+      
+
         updateProduct(){
             const payload={
                 id: Number(this.productId),
@@ -24,8 +37,22 @@ export default{
                 price:this.price,
                 quantity:Number(this.quantity) 
             }
-            this.updateProductDetails(payload);
+            const actions={
+                failure: this.onFailure,
+                success: this.onSuccess
+            }
+
+            if(this.name!=='' && this.price>0 && this.quantity>0){
+                console.log("yes");
+                this.updateProductDetails(payload,actions);
+            }
+            else{
+                alert("Enter all fields");
+            }
+
         }
+
+
 
 
     },

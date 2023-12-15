@@ -17,13 +17,29 @@ export default {
     methods:{
         ...mapActions(ProductStore,['purchaseProduct','getProductById']),
 
+        onSuccess(){
+            alert("Thanks For Purchasing!!")
+            this.$router.push("/");
+
+        },
+
+        onFailure(){
+            alert("server error")
+        
+        },
+
         initiatePurchase(){
             const payload={
                 customerId: this.customerId,
                 productId: Number(this.productId),
-                productQuantity:Number(this.inputQuantity) 
+                productQuantity:Number(this.inputQuantity) ,
             }
-            this.purchaseProduct(payload);
+            const actions={
+                failure: this.onFailure,
+                success: this.onSuccess
+            }
+
+            this.purchaseProduct(payload,actions);
         }
     },
 

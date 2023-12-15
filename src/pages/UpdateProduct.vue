@@ -2,9 +2,9 @@
   <div class="input-container">
     <div class="inputs">
       <h3>Update Product</h3>
-      <input type="text" v-model="name" placeholder="Input 1" />
-      <input type="number" v-model="price" placeholder="Input 2" />
-      <input type="number" v-model="quantity" placeholder="Input 3" />
+      <input type="text" v-model="name" :placeholder="updateInitiatedProduct.name" required />
+      <input type="number" v-model="price" :placeholder="updateInitiatedProduct.price" required />
+      <input type="number" v-model="quantity" placeholder="Product Quantity" required/>
       <button @click="updateProduct">update</button>
     </div>
   </div>
